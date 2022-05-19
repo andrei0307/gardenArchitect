@@ -38,7 +38,12 @@ $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['RE
             </ul>
         </nav>
         <h1 class="shop-name shop-name-large">Garden Architect</h1>
-        <div class="descriere">Descoperă la Garden Architect gama variată de mobilier de grădină de 
+        <div class="descriere">            <nav class="nav search-nav">
+                    <form method="post" action="search_result.php">
+                        <label class="search-label">Search</label>
+                        <input type="text" name="search" class="search-btn">
+                        <input type="submit" name="">
+             </form><br>Descoperă la Garden Architect gama variată de mobilier de grădină de 
             înaltă calitate și alege piesele de mobilier care se potrivesc stilului și grădinii tale. 
             Aici găsești mobilă de grădină clasică din lemn de tec, lemn de esenţă tare FSC , aluminiu 
             şi plastic, poliratan sau sticlă care se potriveşte pentru orice spațiu exterior. Poți alege 
@@ -60,6 +65,7 @@ $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['RE
                 if (!empty($product_array)) {
                     foreach ($product_array as $key => $value) {
                 ?>
+                    <a href="detalii_produs.php">
                         <div class="product">
                             <form method="post" action="cart_update.php">
                                 <div class="product-header">
@@ -80,6 +86,7 @@ $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['RE
                                 <input type="hidden" name="return_url" value="<?php echo $current_url; ?>" />
                             </form>
                         </div>
+                    </a>
                 <?php
                     }
                 }

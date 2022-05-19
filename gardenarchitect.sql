@@ -41,8 +41,7 @@ INSERT INTO `orders` (`email`, `orderlist`, `price`) VALUES
 ('ionescu33@yahoo.com', ' Crin Miss Feya 1; Hamac 2 persoane 2; Etajera Flori Lemn 1;', 67.98),
 ('mitoia01@yahoo.com', ' Crin Miss Feya 1; Brad Alb 1; Leagan Perna Suspendat 1; Pitic De Gradina 35cm 1; Balansoar Cadru Metalic 3;', 712.95),
 ('ionescu04@yahoo.com', ' Brad Alb 1; Masa Sticla 4 Persoane 1; Scoarta Din Lemn Decorativa 500g 4; Lalele 1;', 173.93),
-('radulescu04@yahoo.com', ' Frezie Double Mix 1; Chiparos De California 1; Scoarta Din Lemn Decorativa 500g 1; Fantana Ornamentala Panou Solar 4;', 291.97),
-('andreiratundu07@yahoo.com', ' Frezie Double Mix 1; Brad Alb 5;', 230.94);
+('radulescu04@yahoo.com', ' Frezie Double Mix 1; Chiparos De California 1; Scoarta Din Lemn Decorativa 500g 1; Fantana Ornamentala Panou Solar 4;', 291.97);
 
 -- --------------------------------------------------------
 
@@ -116,7 +115,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `surname`, `email`, `password`, `user_type`) VALUES
-(3, 'Andrei', 'Ratundu', 'andreiratundu07@yahoo.com', '$2y$10$GwM1HSHczQl5pDsyGCTGOOfnHO6EYzVp5ZW7HFYfy5vDyX9OPD.ra', 'admin'),
 (4, 'Mihai', 'Ionescu', 'ionescu33@yahoo.com', '$2y$10$G9OOqkRNlYTwkI2FCGn8OOK0vNOYIhku7wmtsyIbmvWQ12oXosyR.', 'user'),
 (5, 'Valentin', 'Popescu', 'popescu17@yahoo.com', '$2y$10$GkfoVBQX1ajz.TdBLo/dV.9gO/JEwbIHZDMySp6MBO1MxeN5JThua', 'user'),
 (8, 'Matei', 'Vasilescu', 'vasilescu04@yahoo.com', '$2y$10$i2EvS82jnNHkhscdUIzjaOV3d10rdtUkW7Pn3.wzObNReeBOqdfsC', 'user'),

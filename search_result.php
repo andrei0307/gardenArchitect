@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once("dbcontroller.php");
 $db_handle = new DBController();
+//current URL of the Page. cart_update.php redirects back to this URL
 $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 ?>
 
@@ -12,15 +14,14 @@ $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['RE
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ornamente Gradina</title>
+    <title>Flori</title>
 
     <link rel="shortcut icon" href="./images/list.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -37,34 +38,24 @@ $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['RE
                 <?php if(isset($_SESSION["user"])){ echo '<li><a href="logout.php">Logout</a></li>';} ?>
             </ul>
         </nav>
+
         <h1 class="shop-name shop-name-large">Garden Architect</h1>
-        <div class="descriere">            <nav class="nav search-nav">
-                    <form method="post" action="search_result.php">
+        <div class="descriere">
+            <nav class="nav search-nav">
+                    <form method="post" class="form-search">
                         <label class="search-label">Search</label>
-                        <input type="text" name="search" class="search-btn">
+                        <input type="text" name="search">
                         <input type="submit" name="">
-             </form><br>De mult visezi ca spatiul de care dispui sa se transforme intr-o 
-            gradina superba demna de privit si de admirat prin care sa te poti plimba in voie 
-            visand la lucruri placute? Visezi la o gradina in stil oriental, o gradina japoneza 
-            sau esti o persoana romantica care prefera gradinile in stil englezesc? Ai nevoie de 
-            mai mult oxigen in curtea casei tale si esti indragostit de peisajele montane, 
-            dorindu-ti o gradina de tip stancarie sau in stil alpin? Oricare ti-ar fi dorintele, 
-            echipa GardenExpert te ajuta cu tot ceea ce tine de amenajarea unui spatiu verde, a 
-            unei gradini sau chiar a unui parc. Pe langa oferta impresionanta de plante ornamentale 
-            pe care ti le punem la dispozitie, iti venim in ajutor si cu mobilier de gradina, pergole, 
-            fantani, sisteme de irigat, pavaje si orice altceva ti-ai putea dori pentru gradina ta de vis.
-            Iti venim in ajutor cu servicii si produse de calitate in proiectarea si amenajarea de
-             gradini si spatii verzi. Echipa GardenExpert iti va oferi posibilitatea de a-ti indeplini 
-             visul mult dorit. Tu doar dezvaluie-ne dorintele tale iar noi ne vom ocupa de restul. 
-             Lasa grija in seamna noastra!</div>
+             </form><br>
+            </div>
     </header>
 
     <main>
-        <section class="section">
-         
-        <div class="product-group container">
+    <section class="section">
+            <div class="product-group container">
                 <?php
-                $product_array = $db_handle->runQuery("SELECT * FROM products WHERE type='ornaments'");
+                $search=$_POST["search"];
+                $product_array = $db_handle->runQuery("SELECT * FROM products WHERE LOCATE('$search', name) > 0 ;");
                 if (!empty($product_array)) {
                     foreach ($product_array as $key => $value) {
                 ?>
@@ -92,9 +83,16 @@ $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['RE
                     </a>
                 <?php
                     }
+                }else{
+                    ?>
+                    <h1>Nu au fost gasite rezultate pentru: <?php echo $search?></h1>
+
+                <?php
                 }
                 ?>
             </div>
+
+
         </section>
     </main>
 

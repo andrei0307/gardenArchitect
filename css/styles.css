@@ -257,6 +257,7 @@ body {
 	border-radius: 30px;
     
 }
+
 .check-box
 {
 	margin: 30px 10px 34px 0;
@@ -315,6 +316,7 @@ body {
     text-align: center;
     transition: all 300ms ease-in-out;
 }
+
 
 .product:hover {
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
@@ -545,6 +547,7 @@ body {
     font-size:1.1em;
 }
 
+
 .btn-purchase {
     text-align: center;
     
@@ -745,3 +748,24 @@ body {
 .admin-delete-button:hover{
     background-color: #e70505;
 }
+
+.search-nav{
+    margin-left: 200px;
+    color: #006400;
+}
+
+.search-label{
+    margin-left: 200px;
+    color: #333;
+}
+
+.form-search{
+    text-align: center;
+    display: inline-block;
+}
+
+.search{
+    margin-left: 200px;
+}
+
+
